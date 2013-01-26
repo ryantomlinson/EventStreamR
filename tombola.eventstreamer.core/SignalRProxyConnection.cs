@@ -16,7 +16,7 @@ namespace tombola.eventstreamer.core
 		private static Object connectionLock = new Object();
 		private static IHubProxy proxy;
 		private static HubConnection hubConnection;
-		private static string connectionUrl = ConfigurationManager.AppSettings["SignalRDashboardUrl"];
+        private static string connectionUrl = ConfigurationManager.AppSettings["SignalREventReceiverUrl"];
 
 		public static void Send(string key, string value)
 		{
