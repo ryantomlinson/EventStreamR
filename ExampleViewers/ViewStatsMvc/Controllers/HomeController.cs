@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ExampleViewers.ViewStatsMvc.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +15,9 @@ namespace ExampleViewers.ViewStatsMvc
 
         public ActionResult Index()
         {
-            return View();
+            var model = new EventStreamViewModel();
+            model.EventProxyHubUrl = ConfigurationManager.AppSettings["SignalREventReceiverHubUrl"];
+            return View(model);
         }
     }
 }

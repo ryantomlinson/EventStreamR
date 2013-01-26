@@ -3,7 +3,7 @@ using tombola.eventstreamer.core.Messages;
 
 namespace tombola.eventstreamer.proxy.Hubs
 {
-    public class EventViewerHub : Hub
+    public class EventCountViewerHub : Hub
     {
         public void EventCountNotifyEventViewers(EventCountMessage eventCounts)
         {

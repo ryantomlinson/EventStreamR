@@ -10,7 +10,7 @@ namespace tombola.eventstreamer.proxy.Hubs
         {
             IEventPersistence redisPersistence = new RedisEventPersistence();
             redisPersistence.Store(message);
-            Clients.All.addMessage(message);
+            Clients.All.eventReceived(message);
         }
 
         public void IncrementEventCount(string key)
