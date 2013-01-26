@@ -15,8 +15,8 @@ namespace ExampleClients.ConsoleEventGenerator
             for (int i = 0; i < 1000; i++)
             {
                 Console.WriteLine("firing event");
-                EventStreamer.Streamer.Send("ryan", "test");
-                EventStreamer.Streamer.Increment("incrementtest");
+                EventStreamer.Instance.Send("ryan", "test");
+                EventStreamer.Instance.Increment("incrementtest");
                 Thread.Sleep(5000);
             }
         }

@@ -19,7 +19,7 @@ namespace tombola.eventstreamer.web.Controllers
 
 		public ActionResult SendEvent()
 		{
-			EventStreamer.Streamer.Send("ryan", "test");
+			EventStreamer.Instance.Send("ryan", "test");
 			return RedirectToAction("Index");
 		}
 
