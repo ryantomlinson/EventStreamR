@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventStreamer.cs" />
+    <Compile Include="Messages\EventCountMessage.cs" />
     <Compile Include="Messages\EventMessage.cs" />
     <Compile Include="Persistence\IEventPersistence.cs" />
     <Compile Include="Persistence\RedisEventPersistence.cs" />
