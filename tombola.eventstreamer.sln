@@ -37,6 +37,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "64bit", "64bit", "{4D9689E9
 		redis.executables\64bit\redis-server.pdb = redis.executables\64bit\redis-server.pdb
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleClients", "ExampleClients", "{12F6788B-C5FC-4C5F-AC59-DE9D13AF71A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5A165532-3DF3-4A72-B820-E0991A4044AD}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,5 +71,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D68F650E-531D-4433-99E4-390D1E944F77} = {33622558-D764-4272-8CC7-39AC8835A921}
 		{4D9689E9-D2A0-41F7-BB77-B750673991AE} = {33622558-D764-4272-8CC7-39AC8835A921}
+		{01BC1544-B998-4BE8-9C39-F0E3DF44E525} = {12F6788B-C5FC-4C5F-AC59-DE9D13AF71A9}
 	EndGlobalSection
 EndGlobal
