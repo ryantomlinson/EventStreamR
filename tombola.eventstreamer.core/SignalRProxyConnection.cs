@@ -50,11 +50,11 @@ namespace tombola.eventstreamer.core
                 }
 
                 if (hubConnection.State == ConnectionState.Connected)
-                    proxy.Invoke("IncrementEventCount", new EventMessage { Key = key });
+                    proxy.Invoke("IncrementEventCount", key );
                 else
                 {
                     Connect();
-                    proxy.Invoke("IncrementEventCount", new EventMessage { Key = key});
+                    proxy.Invoke("IncrementEventCount", key );
                 }
             }
         }

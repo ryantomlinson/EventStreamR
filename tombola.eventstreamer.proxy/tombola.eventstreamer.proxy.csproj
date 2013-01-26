@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Include="Hubs\EventHub.cs" />
     <Compile Include="Hubs\EventCountViewerHub.cs" />
+    <Compile Include="IncrementalKeyStore.cs" />
+    <Compile Include="Processing\AggregateEventCounts.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +90,7 @@
       <Name>tombola.eventstreamer.core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

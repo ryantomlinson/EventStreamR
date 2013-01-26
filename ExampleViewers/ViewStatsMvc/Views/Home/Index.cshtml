@@ -17,6 +17,19 @@
     </script>
 </div>
 
+<h2>Event aggregates</h2>
+<div class="row">
+    <ul class="aggregateList" data-bind="template: { name: 'aggregate-template', foreach: aggregateNotifications }">
+
+    </ul>
+    <script type="text/html" id="aggregate-template">
+        <li>
+            <span class="key" data-bind="text:Key"></span>
+            <span class="value" data-bind="text:Count"></span>
+        </li>
+    </script>
+</div>
+
 
 
 @section scripts
@@ -33,13 +46,17 @@
 
             var eventCountViewerHub = $.connection.eventCountViewerHub;
             eventCountViewerHub.client.eventCountMessageReceived = function (eventCounts) {
-                alert('got some event counts, you should write something to process these');
+                for(var i in eventCounts.Items)
+                {
+                    viewModel.aggregateNotifications.push(eventCounts.Items[i]);
+                }
             }
 
             $.connection.hub.start();
 
             var viewModel = {
-                eventNotifications: ko.observableArray([])
+                eventNotifications: ko.observableArray([]),
+                aggregateNotifications: ko.observableArray([])
             }
 
             ko.applyBindings(viewModel);

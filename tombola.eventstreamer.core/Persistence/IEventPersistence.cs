@@ -1,4 +1,5 @@
-﻿using tombola.eventstreamer.core.Messages;
+﻿using System.Collections.Generic;
+using tombola.eventstreamer.core.Messages;
 
 namespace tombola.eventstreamer.core.Persistence
 {
@@ -6,5 +7,6 @@ namespace tombola.eventstreamer.core.Persistence
 	{
 		void Store(EventMessage message);
         void Increment(string key);
+        IDictionary<string, uint> GetIncrementValues(IEnumerable<string> keys);
 	}
 }

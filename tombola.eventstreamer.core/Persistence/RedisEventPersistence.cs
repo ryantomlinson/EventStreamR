@@ -1,5 +1,6 @@
 ﻿using ServiceStack.Redis;
 using ServiceStack.Redis.Generic;
+using System.Collections.Generic;
 using tombola.eventstreamer.core.Messages;
 
 namespace tombola.eventstreamer.core.Persistence
@@ -27,14 +28,33 @@ namespace tombola.eventstreamer.core.Persistence
             }
         }
 
-        public uint GetIncrementValue(string key)
+        public IDictionary<string, uint> GetIncrementValues(IEnumerable<string> keys)
         {
-            string eventKey = string.Format("urn:eventcounts:{0}", key);
+            Dictionary<string, string> convertedKeys = new Dictionary<string, string>();
+            foreach (string key in keys)
+            {
+                convertedKeys.Add(key, string.Format("urn:eventcounts:{0}", key));
+            }
 
+            IDictionary<string, uint> redisReturnValues = null;
             using (var redisClient = new RedisClient())
             {
-                return redisClient.Get<uint>(eventKey);
+                redisReturnValues = redisClient.GetAll<uint>(convertedKeys.Values);
             }
+
+            Dictionary<string, uint> returnValues = new Dictionary<string, uint>();
+            if (redisReturnValues != null)
+            {
+                foreach(KeyValuePair<string, string> kvp in convertedKeys)
+                {
+                    if (redisReturnValues.ContainsKey(kvp.Value))
+                    {
+                        returnValues.Add(kvp.Key, redisReturnValues[kvp.Value]);
+                    }
+                }
+            }
+
+            return returnValues;
         }
 		 
 	}

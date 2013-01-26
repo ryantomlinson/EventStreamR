@@ -16,6 +16,7 @@ namespace tombola.eventstreamer.proxy.Hubs
         public void IncrementEventCount(string key)
         {
             IEventPersistence redisPersistence = new RedisEventPersistence();
+            IncrementalKeyStore.Instance.AddKeyNameIfNeeded(key);
             redisPersistence.Increment(key);
         }
     }
