@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace RealtimeStatR.ViewStats
+namespace ExampleViewers.ViewStatsMvc
 {
     public class BundleConfig
     {

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="RealtimeStatR.ViewStats.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="ExampleViewers.ViewStatsMvc.MvcApplication" Language="C#" %>

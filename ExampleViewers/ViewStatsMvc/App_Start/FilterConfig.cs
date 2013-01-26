@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace RealtimeStatR.ViewStats
+namespace ExampleViewers.ViewStatsMvc
 {
     public class FilterConfig
     {

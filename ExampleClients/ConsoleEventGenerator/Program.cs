@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using tombola.eventstreamer.core;
 
-namespace ConsoleEventGenerator
+namespace ExampleClients.ConsoleEventGenerator
 {
     class Program
     {

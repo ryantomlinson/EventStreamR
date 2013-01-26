@@ -48,7 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5A1655
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleViewers", "ExampleViewers", "{A7B63FB7-AEF0-42C4-AF43-E7DE42D64E7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealtimeStatR.ViewStats", "ExampleViewers\ViewStatsMvc\RealtimeStatR.ViewStats.csproj", "{3D093DFE-323E-40BB-8746-7505687747EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewStatsMvc", "ExampleViewers\ViewStatsMvc\ViewStatsMvc.csproj", "{3D093DFE-323E-40BB-8746-7505687747EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleEventGenerator", "ExampleClients\ConsoleEventGenerator\ConsoleEventGenerator.csproj", "{3E75AEC6-FA00-43CB-8AFC-658B12A57299}"
 EndProject
