@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@section scripts
+{
+    <script type="text/javascript" src="http://localhost:9999/signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            // Proxy created on the fly          
+            $.connection.hub.url = 'http://localhost:9999/signalr/hubs'
+            $.connection.hub.start();
+            var statsListenerHub = $.connection.statsListenerHub;
+            statsListenerHub.client.incrementedKeyUpdated = function (key, value) {
+                alert(key + " :: " + value);
+            };
+        });
+    </script>
+}

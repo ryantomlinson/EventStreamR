@@ -10,7 +10,7 @@ namespace tombola.eventstreamer.core.Persistence
 		{
 			using (var redisClient = new RedisClient())
 			{
-				IRedisTypedClient<EventMessage> redis = redisClient.GetTypedClient<EventMessage>();
+				IRedisTypedClient<EventMessage> redis = redisClient.As<EventMessage>();
 
 				var eventMessages = redis.Lists["urn:events:current"];
 				eventMessages.Add(message);

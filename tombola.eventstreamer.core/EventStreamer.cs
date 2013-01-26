@@ -17,6 +17,12 @@
 			SignalRProxyConnection.Send(key, value);
 		}
 
+        public void Increment(string key)
+        {
+            SignalRProxyConnection.Increment(key);
+        }
+
+
 		class Nested
 		{
 			// Explicit static constructor to tell C# compiler

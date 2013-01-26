@@ -38,6 +38,27 @@ namespace tombola.eventstreamer.core
 			}
 		}
 
+        //leaving this as a compleately seperate system to event sending for now
+        public static void Increment(string key)
+        {
+            // locking this operation so that it's thread safe
+            lock (connectionLock)
+            {
+                if (!connected)
+                {
+                    Connect();
+                }
+
+                if (hubConnection.State == ConnectionState.Connected)
+                    proxy.Invoke("IncrementEventCount", new EventMessage { Key = key });
+                else
+                {
+                    Connect();
+                    proxy.Invoke("IncrementEventCount", new EventMessage { Key = key});
+                }
+            }
+        }
+
 		private static void Connect()
 		{
 			hubConnection = new HubConnection(connectionUrl);

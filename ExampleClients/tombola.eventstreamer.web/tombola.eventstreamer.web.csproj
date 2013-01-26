@@ -91,9 +91,6 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Providers">
-      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
@@ -224,7 +221,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\tombola.eventstreamer.core\tombola.eventstreamer.core.csproj">
+    <ProjectReference Include="..\..\tombola.eventstreamer.core\tombola.eventstreamer.core.csproj">
       <Project>{F3650E4A-282C-4E95-A7E8-C2C1AD87C4DD}</Project>
       <Name>tombola.eventstreamer.core</Name>
     </ProjectReference>
