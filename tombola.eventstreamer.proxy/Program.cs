@@ -27,14 +27,4 @@ namespace tombola.eventstreamer.proxy
 			app.MapHubs();
 		}
 	}
-
-	public class EventHub : Hub
-	{
-		public void SendEvent(EventMessage message)
-		{
-			IEventPersistence redisPersistence = new RedisEventPersistence();
-			redisPersistence.Store(message);
-			Clients.All.addMessage(message);
-		}
-	}
 }

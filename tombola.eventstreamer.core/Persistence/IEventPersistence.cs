@@ -5,5 +5,6 @@ namespace tombola.eventstreamer.core.Persistence
 	public interface IEventPersistence
 	{
 		void Store(EventMessage message);
+        void Increment(string key);
 	}
 }

@@ -16,6 +16,26 @@ namespace tombola.eventstreamer.core.Persistence
 				eventMessages.Add(message);
 			}
 		}
+
+        public void Increment(string key)
+        {
+            string eventKey = string.Format("urn:eventcounts:{0}", key);
+
+            using (var redisClient = new RedisClient())
+            {
+                redisClient.Increment(eventKey, 1);
+            }
+        }
+
+        public uint GetIncrementValue(string key)
+        {
+            string eventKey = string.Format("urn:eventcounts:{0}", key);
+
+            using (var redisClient = new RedisClient())
+            {
+                return redisClient.Get<uint>(eventKey);
+            }
+        }
 		 
 	}
 }
