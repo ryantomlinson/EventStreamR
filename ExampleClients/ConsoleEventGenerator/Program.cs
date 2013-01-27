@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using EventStreamR.Core;
+using EventStreamR.Core.Messages;
 
 namespace ExampleClients.ConsoleEventGenerator
 {
@@ -11,7 +12,12 @@ namespace ExampleClients.ConsoleEventGenerator
             for (int i = 0; i < 1000; i++)
             {
                 Console.WriteLine("firing event");
-                EventStreamer.Instance.Send("ryan", "test");
+				EventStreamer.Instance.CreateEvent()
+										.WithMessage("Some kind of message")
+										.WithSeverity(Severity.Critical)
+										.WithTags("registration UK")
+										.WithSource("web1")
+										.Send();
                 EventStreamer.Instance.Increment("incrementtest");
                 Thread.Sleep(5000);
             }

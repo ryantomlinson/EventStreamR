@@ -1,4 +1,5 @@
 ﻿using System;
+using EventStreamR.Core.Messages;
 
 namespace EventStreamR.Core
 {
@@ -12,10 +13,15 @@ namespace EventStreamR.Core
         {
         }
 
-        public void Send(string key, string value)
-        {
-            SignalRProxyConnection.Send(key, value);
-        }
+		internal void Send(EventMessage eventMessage)
+		{
+			SignalRProxyConnection.Send(eventMessage);
+		}
+
+		public EventMessage CreateEvent()
+		{
+			return new EventMessage();
+		}
 
         public void Increment(string key)
         {

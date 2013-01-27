@@ -18,7 +18,7 @@ namespace EventStreamR.Core
 		private static HubConnection hubConnection;
         private static string connectionUrl = ConfigurationManager.AppSettings["SignalREventReceiverUrl"];
 
-		public static void Send(string key, string value)
+		public static void Send(EventMessage eventMessage)
 		{
 			// locking this operation so that it's thread safe
 			lock (connectionLock)
@@ -29,11 +29,11 @@ namespace EventStreamR.Core
 				}
 
 				if (hubConnection.State == ConnectionState.Connected)
-					proxy.Invoke("SendEvent", new EventMessage{Key = key, Value = value});
+					proxy.Invoke("SendEvent", eventMessage);
 				else
 				{
 					Connect();
-					proxy.Invoke("SendEvent", new EventMessage { Key = key, Value = value });
+					proxy.Invoke("SendEvent", eventMessage);
 				}
 			}
 		}
