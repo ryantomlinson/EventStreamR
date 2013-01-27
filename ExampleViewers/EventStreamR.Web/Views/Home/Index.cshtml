@@ -29,7 +29,7 @@
     <script type="text/javascript">
         $(function () {
             // Proxy created on the fly          
-            $.connection.hub.url = '@Model.EventProxyHubUrl'
+	        $.connection.hub.url = '@Model.EventProxyHubUrl'
             var eventNotificationHub = $.connection.eventHub;
             eventNotificationHub.client.eventReceived = function (eventInfo) {
                 viewModel.eventNotifications.push(eventInfo);

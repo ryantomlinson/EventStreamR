@@ -8,6 +8,7 @@
         <title>@ViewBag.Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="@Styles.Url("~/content/css")" rel="stylesheet"/>
+		@Styles.Render("~/Content/cssbase")
         <style type="text/css">
           body {
             padding-top: 60px;
@@ -46,6 +47,7 @@
             </footer> 
         </div>
          @Scripts.Render("~/js")
+		@Scripts.Render("~/bundles/sitebase")
          @RenderSection("Scripts", required: false)
     </body>
 </html>
