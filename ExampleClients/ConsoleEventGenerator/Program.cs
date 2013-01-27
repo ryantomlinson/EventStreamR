@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
-using EventStreamR.Core;
-using EventStreamR.Core.Messages;
+using EventStreamR.Client.Core;
+using EventStreamR.Client.Core.Messages;
 
 namespace ExampleClients.ConsoleEventGenerator
 {

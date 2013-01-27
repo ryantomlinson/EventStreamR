@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
-using EventStreamR.Core;
-using EventStreamR.Core.Messages;
+using EventStreamR.Client.Core;
+using EventStreamR.Client.Core.Messages;
 
 namespace EventStreamR.Web.Client.Controllers
 {

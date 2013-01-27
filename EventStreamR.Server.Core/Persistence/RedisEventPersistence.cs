@@ -1,17 +1,18 @@
-﻿using ServiceStack.Redis;
+﻿using System.Collections.Generic;
+using EventStreamR.Client.Core.Messages;
+using EventStreamR.Server.Domain.Messages;
+using ServiceStack.Redis;
 using ServiceStack.Redis.Generic;
-using System.Collections.Generic;
-using EventStreamR.Core.Messages;
 
-namespace EventStreamR.Core.Persistence
+namespace EventStreamR.Server.Core.Persistence
 {
 	public class RedisEventPersistence : IEventPersistence
 	{
-		public void Store(EventMessage message)
+		public void Store(EventMessageDto message)
 		{
 			using (var redisClient = new RedisClient())
 			{
-				IRedisTypedClient<EventMessage> redis = redisClient.As<EventMessage>();
+				IRedisTypedClient<EventMessageDto> redis = redisClient.As<EventMessageDto>();
 
 				var eventMessages = redis.Lists["urn:events:current"];
 				eventMessages.Add(message);

@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNet.SignalR.Client.Hubs;
-using EventStreamR.Core.Messages;
+using EventStreamR.Client.Core.Messages;
 
-namespace EventStreamR.Core
+namespace EventStreamR.Client.Core
 {
 	internal static class SignalRProxyConnection
 	{

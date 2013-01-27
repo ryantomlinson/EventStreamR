@@ -1,5 +1,5 @@
-﻿using EventStreamR.Core.Messages;
-using EventStreamR.Core.Persistence;
+﻿using EventStreamR.Client.Core.Messages;
+using EventStreamR.Server.Core.Persistence;
 using Microsoft.AspNet.SignalR;
 using System.Collections.Generic;
 using EventStreamR.Proxy.Hubs;

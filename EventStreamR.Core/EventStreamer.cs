@@ -1,7 +1,7 @@
 ﻿using System;
-using EventStreamR.Core.Messages;
+using EventStreamR.Client.Core.Messages;
 
-namespace EventStreamR.Core
+namespace EventStreamR.Client.Core
 {
     public sealed class EventStreamer
     {
@@ -11,6 +11,7 @@ namespace EventStreamR.Core
 
         private EventStreamer()
         {
+			
         }
 
 		internal void Send(EventMessage eventMessage)

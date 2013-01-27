@@ -1,5 +1,7 @@
-﻿using EventStreamR.Core.Messages;
-using EventStreamR.Core.Persistence;
+﻿using AutoMapper;
+using EventStreamR.Client.Core.Messages;
+using EventStreamR.Server.Core.Persistence;
+using EventStreamR.Server.Domain.Messages;
 using Microsoft.AspNet.SignalR;
 
 namespace EventStreamR.Proxy.Hubs
@@ -9,8 +11,11 @@ namespace EventStreamR.Proxy.Hubs
         public void SendEvent(EventMessage message)
         {
             IEventPersistence redisPersistence = new RedisEventPersistence();
-            redisPersistence.Store(message);
-            Clients.All.eventReceived(message);
+
+			var eventMessageDto = Mapper.Map<EventMessage, EventMessageDto>(message);
+
+			redisPersistence.Store(eventMessageDto);
+			Clients.All.eventReceived(eventMessageDto);
         }
 
         public void IncrementEventCount(string key)

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EventStreamR.Core.Messages
+namespace EventStreamR.Client.Core.Messages
 {
     public class EventCountMessage
     {

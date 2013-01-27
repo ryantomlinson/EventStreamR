@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.2.2.1-ci9001\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.0.0-rc2\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
@@ -85,9 +89,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventStreamR.Core\EventStreamR.Core.csproj">
+    <ProjectReference Include="..\EventStreamR.Core\EventStreamR.Client.Core.csproj">
       <Project>{F3650E4A-282C-4E95-A7E8-C2C1AD87C4DD}</Project>
-      <Name>EventStreamR.Core</Name>
+      <Name>EventStreamR.Client.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EventStreamR.Server.Core\EventStreamR.Server.Core.csproj">
+      <Project>{6747c2e1-e08e-4233-ad73-c3e90283a253}</Project>
+      <Name>EventStreamR.Server.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EventStreamR.Server.Domain\EventStreamR.Server.Domain.csproj">
+      <Project>{C0A8576F-8599-43B6-88E1-575476FE51EE}</Project>
+      <Name>EventStreamR.Server.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

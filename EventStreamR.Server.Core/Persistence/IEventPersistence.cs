@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using EventStreamR.Core.Messages;
+using EventStreamR.Server.Domain.Messages;
 
-namespace EventStreamR.Core.Persistence
+namespace EventStreamR.Server.Core.Persistence
 {
 	public interface IEventPersistence
 	{
-		void Store(EventMessage message);
+		void Store(EventMessageDto message);
         void Increment(string key);
         IDictionary<string, uint> GetIncrementValues(IEnumerable<string> keys);
 	}

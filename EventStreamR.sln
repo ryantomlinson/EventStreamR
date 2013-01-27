@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamR.Proxy", "Event
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamR.Web.Client", "ExampleClients\EventStreamR.Web.Client\EventStreamR.Web.Client.csproj", "{01BC1544-B998-4BE8-9C39-F0E3DF44E525}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamR.Core", "EventStreamR.Core\EventStreamR.Core.csproj", "{F3650E4A-282C-4E95-A7E8-C2C1AD87C4DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamR.Client.Core", "EventStreamR.Core\EventStreamR.Client.Core.csproj", "{F3650E4A-282C-4E95-A7E8-C2C1AD87C4DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Redis Executables", "Redis Executables", "{33622558-D764-4272-8CC7-39AC8835A921}"
 EndProject
@@ -52,6 +52,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamR.Web", "Example
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleEventGenerator", "ExampleClients\ConsoleEventGenerator\ConsoleEventGenerator.csproj", "{3E75AEC6-FA00-43CB-8AFC-658B12A57299}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamR.Server.Core", "EventStreamR.Server.Core\EventStreamR.Server.Core.csproj", "{6747C2E1-E08E-4233-AD73-C3E90283A253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamR.Server.Domain", "EventStreamR.Server.Domain\EventStreamR.Server.Domain.csproj", "{C0A8576F-8599-43B6-88E1-575476FE51EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +82,14 @@ Global
 		{3E75AEC6-FA00-43CB-8AFC-658B12A57299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E75AEC6-FA00-43CB-8AFC-658B12A57299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E75AEC6-FA00-43CB-8AFC-658B12A57299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6747C2E1-E08E-4233-AD73-C3E90283A253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6747C2E1-E08E-4233-AD73-C3E90283A253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6747C2E1-E08E-4233-AD73-C3E90283A253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6747C2E1-E08E-4233-AD73-C3E90283A253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A8576F-8599-43B6-88E1-575476FE51EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A8576F-8599-43B6-88E1-575476FE51EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A8576F-8599-43B6-88E1-575476FE51EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A8576F-8599-43B6-88E1-575476FE51EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

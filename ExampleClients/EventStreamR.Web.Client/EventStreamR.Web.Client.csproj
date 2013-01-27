@@ -138,9 +138,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EventStreamR.Core\EventStreamR.Core.csproj">
+    <ProjectReference Include="..\..\EventStreamR.Core\EventStreamR.Client.Core.csproj">
       <Project>{F3650E4A-282C-4E95-A7E8-C2C1AD87C4DD}</Project>
-      <Name>EventStreamR.Core</Name>
+      <Name>EventStreamR.Client.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

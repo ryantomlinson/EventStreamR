@@ -1,4 +1,5 @@
 ﻿using System;
+using EventStreamR.Server.Domain.Mapping;
 using Microsoft.Owin.Hosting;
 using Owin;
 using System.Threading;
@@ -11,6 +12,8 @@ namespace EventStreamR.Proxy
 		static void Main(string[] args)
 		{
 			string url = "http://localhost:8082";
+
+			ObjectMapping.Configure();
 
 			using (WebApplication.Start<Startup>(url))
 			{

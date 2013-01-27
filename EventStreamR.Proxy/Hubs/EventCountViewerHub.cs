@@ -1,4 +1,4 @@
-﻿using EventStreamR.Core.Messages;
+﻿using EventStreamR.Client.Core.Messages;
 using Microsoft.AspNet.SignalR;
 
 namespace EventStreamR.Proxy.Hubs

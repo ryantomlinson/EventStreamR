@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EventStreamR.Client.Core")]
+[assembly: AssemblyTitle("EventStreamR.Server.Domain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EventStreamR.Client.Core")]
+[assembly: AssemblyProduct("EventStreamR.Server.Domain")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0298d0d3-26c6-4372-8fca-1d9354fa7a7f")]
+[assembly: Guid("80b8bcf0-c5fd-4ab7-8385-32b30608491e")]
 
 // Version information for an assembly consists of the following four values:
 //
