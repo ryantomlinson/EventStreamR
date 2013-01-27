@@ -12,11 +12,15 @@ namespace EventStreamR.Web
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.signalR-*",
                         "~/Content/Bootstrap/js/bootstrap.js",
-                        "~/Scripts/knockout-{version}.js"
+                        "~/Scripts/knockout-{version}.js",
+                        "~/Scripts/raphael-min.js",
+                        "~/Scripts/morris.js",
+                        "~/Scripts/aggregateGraph.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/cssbase").Include(
                         "~/Content/Bootstrap/css/bootstrap.css",
+                        "~/Content/morris.css",
                         "~/Content/site.css"
                         ));
         }
