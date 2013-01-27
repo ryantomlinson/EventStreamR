@@ -5,6 +5,11 @@
 	Layout = "~/Views/shared/_BootstrapLayout.basic.cshtml";
 }
 
+<h2>Event aggregates</h2>
+<div id="graph">
+
+</div>
+
 <h2>Event stream</h2>
 <div class="row">
     <ul class="eventList" data-bind="template: { name: 'event-template', foreach: eventNotifications }">
@@ -12,26 +17,11 @@
     </ul>
     <script type="text/html" id="event-template">
         <li>
-            <span class="message" data-bind="text:Message"></span>
-            <span class="source" data-bind="text:Source"></span>
-        </li>
-    </script>
-</div>
-
-<h2>Event aggregates</h2>
-<div class="row">
-    <ul class="aggregateList" data-bind="template: { name: 'aggregate-template', foreach: aggregateNotifications }">
-
-    </ul>
-    <script type="text/html" id="aggregate-template">
-        <li>
             <span class="key" data-bind="text:Key"></span>
-            <span class="value" data-bind="text:Count"></span>
+            <span class="value" data-bind="text:Value"></span>
         </li>
     </script>
 </div>
-
-
 
 @section scripts
 {
@@ -47,10 +37,8 @@
 
             var eventCountViewerHub = $.connection.eventCountViewerHub;
             eventCountViewerHub.client.eventCountMessageReceived = function (eventCounts) {
-                for(var i in eventCounts.Items)
-                {
-                    viewModel.aggregateNotifications.push(eventCounts.Items[i]);
-                }
+                viewModel.aggregateNotifications.push(eventCounts);
+                graphPulse(viewModel.aggregateNotifications);
             }
 
             $.connection.hub.start();
@@ -61,6 +49,11 @@
             }
 
             ko.applyBindings(viewModel);
+
+            
+
+
         });
+
     </script>
 }
