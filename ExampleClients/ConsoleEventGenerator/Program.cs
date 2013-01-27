@@ -19,7 +19,24 @@ namespace ExampleClients.ConsoleEventGenerator
 										.WithSource("web1")
 										.Send();
                 EventStreamer.Instance.Increment("incrementtest");
-                Thread.Sleep(5000);
+
+                if (i % 2 == 0)
+                {
+                    EventStreamer.Instance.Increment("incrementtest2");
+                }
+                if (i % 3 == 0)
+                {
+                    EventStreamer.Instance.Increment("incrementtest3");
+                }
+                if (i % 4 == 0)
+                {
+                    EventStreamer.Instance.Increment("incrementtest4");
+                }
+                if (i % 5 == 0)
+                {
+                    EventStreamer.Instance.Increment("incrementtest5");
+                }
+                Thread.Sleep(900);
             }
         }
     }
