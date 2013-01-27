@@ -19,5 +19,11 @@ namespace EventStreamR.Web.Client.Controllers
 			return RedirectToAction("Index");
 		}
 
+		public ActionResult Increment(string key)
+		{
+			EventStreamer.Instance.Increment(key);
+			return RedirectToAction("Index");
+		}
+
     }
 }
