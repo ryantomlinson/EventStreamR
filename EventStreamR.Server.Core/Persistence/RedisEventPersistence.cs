@@ -8,9 +8,11 @@ namespace EventStreamR.Server.Core.Persistence
 {
 	public class RedisEventPersistence : IEventPersistence
 	{
+        private static PooledRedisClientManager pooledClientManager = new PooledRedisClientManager();
+
 		public void Store(EventMessageDto message)
 		{
-			using (var redisClient = new RedisClient())
+            using (var redisClient = pooledClientManager.GetClient())
 			{
 				IRedisTypedClient<EventMessageDto> redis = redisClient.As<EventMessageDto>();
 
@@ -23,7 +25,7 @@ namespace EventStreamR.Server.Core.Persistence
         {
             string eventKey = string.Format("urn:eventcounts:{0}", key);
 
-            using (var redisClient = new RedisClient())
+            using (var redisClient = pooledClientManager.GetClient())
             {
                 redisClient.Increment(eventKey, 1);
             }
@@ -38,7 +40,7 @@ namespace EventStreamR.Server.Core.Persistence
             }
 
             IDictionary<string, uint> redisReturnValues = null;
-            using (var redisClient = new RedisClient())
+            using (var redisClient = pooledClientManager.GetReadOnlyClient())
             {
                 redisReturnValues = redisClient.GetAll<uint>(convertedKeys.Values);
             }

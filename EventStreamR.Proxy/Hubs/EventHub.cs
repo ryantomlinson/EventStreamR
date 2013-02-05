@@ -8,21 +8,20 @@ namespace EventStreamR.Proxy.Hubs
 {
     public class EventHub : Hub
     {
+        IEventPersistence RedisPersistence = new RedisEventPersistence();
+
         public void SendEvent(EventMessage message)
         {
-            IEventPersistence redisPersistence = new RedisEventPersistence();
-
 			var eventMessageDto = Mapper.Map<EventMessage, EventMessageDto>(message);
 
-			redisPersistence.Store(eventMessageDto);
+            RedisPersistence.Store(eventMessageDto);
 			Clients.All.eventReceived(eventMessageDto);
         }
 
         public void IncrementEventCount(string key)
         {
-            IEventPersistence redisPersistence = new RedisEventPersistence();
             IncrementalKeyStore.Instance.AddKeyNameIfNeeded(key);
-            redisPersistence.Increment(key);
+            RedisPersistence.Increment(key);
         }
     }
 }

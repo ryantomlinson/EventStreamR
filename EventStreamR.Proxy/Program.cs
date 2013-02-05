@@ -22,7 +22,7 @@ namespace EventStreamR.Proxy
                     timeCB, // The TimerCallback delegate object.
                     null, // Any info to pass into the called method (null for no info).
                     1000, // Amount of time to wait before starting (in milliseconds).
-                    2500 // Interval of time between calls (in milliseconds).
+                    1000 // Interval of time between calls (in milliseconds).
                  ); 
 
 				Console.WriteLine("Server running on {0}", url);

@@ -9,15 +9,15 @@ namespace ExampleClients.ConsoleEventGenerator
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 1000000000; i++)
             {
-                Console.WriteLine("firing event");
-				EventStreamer.Instance.CreateEvent()
+                /*Console.WriteLine("firing event");*/
+				/*EventStreamer.Instance.CreateEvent()
 										.WithMessage("Some kind of message")
 										.WithSeverity(Severity.Critical)
 										.WithTags("registration UK")
 										.WithSource("web1")
-										.Send();
+										.Send();*/
                 EventStreamer.Instance.Increment("incrementtest");
 
                 if (i % 2 == 0)
@@ -36,7 +36,6 @@ namespace ExampleClients.ConsoleEventGenerator
                 {
                     EventStreamer.Instance.Increment("incrementtest5");
                 }
-                Thread.Sleep(900);
             }
         }
     }
