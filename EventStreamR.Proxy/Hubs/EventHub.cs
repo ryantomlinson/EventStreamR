@@ -3,6 +3,7 @@ using EventStreamR.Client.Core.Messages;
 using EventStreamR.Server.Core.Persistence;
 using EventStreamR.Server.Domain.Messages;
 using Microsoft.AspNet.SignalR;
+using System.Threading.Tasks;
 
 namespace EventStreamR.Proxy.Hubs
 {
@@ -20,8 +21,11 @@ namespace EventStreamR.Proxy.Hubs
 
         public void IncrementEventCount(string key)
         {
-            IncrementalKeyStore.Instance.AddKeyNameIfNeeded(key);
-            RedisPersistence.Increment(key);
+            Task.Run(() =>
+            {
+                IncrementalKeyStore.Instance.AddKeyNameIfNeeded(key);
+                RedisPersistence.Increment(key);
+            });
         }
     }
 }
