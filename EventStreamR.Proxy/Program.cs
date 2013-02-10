@@ -4,6 +4,7 @@ using Microsoft.Owin.Hosting;
 using Owin;
 using System.Threading;
 using EventStreamR.Proxy.Processing;
+using EventStreamR.Proxy.PersistantConnections;
 
 namespace EventStreamR.Proxy
 {
@@ -17,6 +18,7 @@ namespace EventStreamR.Proxy
 
 			using (WebApplication.Start<Startup>(url))
 			{
+
                 TimerCallback timeCB = new TimerCallback(ProcessStats);
                 Timer t = new Timer(
                     timeCB, // The TimerCallback delegate object.
@@ -43,6 +45,7 @@ namespace EventStreamR.Proxy
 		public void Configuration(IAppBuilder app)
 		{
 			app.MapHubs();
+            app.MapConnection<EventIncrementPersistantConnection>("/events/increment");
 		}
 	}
 }

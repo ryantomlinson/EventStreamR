@@ -12,12 +12,7 @@ namespace ExampleClients.ConsoleEventGenerator
             for (int i = 0; i < 1000000000; i++)
             {
                 /*Console.WriteLine("firing event");*/
-				/*EventStreamer.Instance.CreateEvent()
-										.WithMessage("Some kind of message")
-										.WithSeverity(Severity.Critical)
-										.WithTags("registration UK")
-										.WithSource("web1")
-										.Send();*/
+				
                 EventStreamer.Instance.Increment("incrementtest");
 
                 if (i % 2 == 0)
@@ -36,6 +31,18 @@ namespace ExampleClients.ConsoleEventGenerator
                 {
                     EventStreamer.Instance.Increment("incrementtest5");
                 }
+
+                if (i % 5000 == 0)
+                {
+                    EventStreamer.Instance.CreateEvent()
+										.WithMessage("Some kind of message")
+										.WithSeverity(Severity.Critical)
+										.WithTags("registration UK")
+										.WithSource("web1")
+										.Send();
+                }
+
+                Thread.Sleep(1);
             }
         }
     }

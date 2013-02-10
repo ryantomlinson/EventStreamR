@@ -18,14 +18,5 @@ namespace EventStreamR.Proxy.Hubs
             RedisPersistence.Store(eventMessageDto);
 			Clients.All.eventReceived(eventMessageDto);
         }
-
-        public void IncrementEventCount(string key)
-        {
-            Task.Run(() =>
-            {
-                IncrementalKeyStore.Instance.AddKeyNameIfNeeded(key);
-                RedisPersistence.Increment(key);
-            });
-        }
     }
 }

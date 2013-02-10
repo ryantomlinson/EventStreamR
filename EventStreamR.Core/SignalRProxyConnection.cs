@@ -17,6 +17,7 @@ namespace EventStreamR.Client.Core
 		private static IHubProxy proxy;
 		private static HubConnection hubConnection;
         private static string connectionUrl = ConfigurationManager.AppSettings["SignalREventReceiverUrl"];
+        private static Connection incrementPersistantConnection;
 
 		public static void Send(EventMessage eventMessage)
 		{
@@ -25,14 +26,14 @@ namespace EventStreamR.Client.Core
 			{
 				if (!connected)
 				{
-					Connect();
+                    ConnectEventHub();
 				}
 
 				if (hubConnection.State == ConnectionState.Connected)
 					proxy.Invoke("SendEvent", eventMessage);
 				else
 				{
-					Connect();
+                    ConnectEventHub();
 					proxy.Invoke("SendEvent", eventMessage);
 				}
 			}
@@ -42,24 +43,20 @@ namespace EventStreamR.Client.Core
         public static void Increment(string key)
         {
             // locking this operation so that it's thread safe
-            lock (connectionLock)
+            if (incrementPersistantConnection == null)
             {
-                if (!connected)
+                lock (connectionLock)
                 {
-                    Connect();
-                }
-
-                if (hubConnection.State == ConnectionState.Connected)
-                    proxy.Invoke("IncrementEventCount", key );
-                else
-                {
-                    Connect();
-                    proxy.Invoke("IncrementEventCount", key );
+                    Console.WriteLine("Creating new persistant connection");
+                    incrementPersistantConnection = new Connection(connectionUrl + "events/increment");
+                    incrementPersistantConnection.Start().Wait();
                 }
             }
+
+            incrementPersistantConnection.Send(key);
         }
 
-		private static void Connect()
+		private static void ConnectEventHub()
 		{
 			hubConnection = new HubConnection(connectionUrl);
 			proxy = hubConnection.CreateHubProxy("EventHub");
