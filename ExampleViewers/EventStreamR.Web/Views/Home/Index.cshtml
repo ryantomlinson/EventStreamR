@@ -17,8 +17,11 @@
     </ul>
     <script type="text/html" id="event-template">
         <li>
-            <span class="key" data-bind="text:Key"></span>
-            <span class="value" data-bind="text:Value"></span>
+            <span class="key" data-bind="text:Source"></span>
+            <span class="value" data-bind="text:Message"></span>
+            <span class="severity" data-bind="text:Severity"></span>
+            <span class="tags" data-bind="text:Tags"></span>
+            <span class="createdAt" data-bind="text:CreatedAt"></span>
         </li>
     </script>
 </div>

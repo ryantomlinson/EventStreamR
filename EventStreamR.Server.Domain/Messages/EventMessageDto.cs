@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using EventStreamR.Client.Core.Messages;
+﻿using EventStreamR.Client.Core.Messages;
+using System;
+using System.Collections.Generic;
 
 namespace EventStreamR.Server.Domain.Messages
 {
@@ -9,5 +10,6 @@ namespace EventStreamR.Server.Domain.Messages
 		public string Source { get; set; }
 		public Severity Severity { get; set; }
 		public List<string> Tags { get; set; }
+        public DateTime CreatedAt { get; set; }
 	}
 }

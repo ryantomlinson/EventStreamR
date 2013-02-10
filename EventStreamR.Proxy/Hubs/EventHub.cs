@@ -16,7 +16,7 @@ namespace EventStreamR.Proxy.Hubs
 			var eventMessageDto = Mapper.Map<EventMessage, EventMessageDto>(message);
 
             RedisPersistence.Store(eventMessageDto);
-			Clients.All.eventReceived(eventMessageDto);
+			Clients.All.eventReceived(message);
         }
     }
 }

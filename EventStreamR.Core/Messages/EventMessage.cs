@@ -9,6 +9,12 @@ namespace EventStreamR.Client.Core.Messages
 		public string Source { get; set; }
 		public Severity Severity { get; set; }
 		public List<string> Tags { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public EventMessage()
+        {
+            CreatedAt = DateTime.Now;
+        }
 
 		public EventMessage WithMessage(string message)
 		{
