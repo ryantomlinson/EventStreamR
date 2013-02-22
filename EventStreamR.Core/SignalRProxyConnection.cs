@@ -50,6 +50,7 @@ namespace EventStreamR.Client.Core
                     Console.WriteLine("Creating new persistant connection");
                     incrementPersistantConnection = new Connection(connectionUrl + "events/increment");
                     incrementPersistantConnection.Start().Wait();
+                    Console.WriteLine("Connection created");
                 }
             }
 

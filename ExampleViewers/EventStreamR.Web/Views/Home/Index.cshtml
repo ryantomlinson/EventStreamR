@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Event stream";
-	Layout = "~/Views/shared/_BootstrapLayout.basic.cshtml";
 }
 
 <h2>Event aggregates</h2>
@@ -32,7 +31,8 @@
     <script type="text/javascript">
         $(function () {
             // Proxy created on the fly          
-	        $.connection.hub.url = '@Model.EventProxyHubUrl'
+            $.connection.hub.url = '@Model.EventProxyHubUrl';
+
             var eventNotificationHub = $.connection.eventHub;
             eventNotificationHub.client.eventReceived = function (eventInfo) {
                 viewModel.eventNotifications.push(eventInfo);

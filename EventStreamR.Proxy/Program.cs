@@ -5,6 +5,7 @@ using Owin;
 using System.Threading;
 using EventStreamR.Proxy.Processing;
 using EventStreamR.Proxy.PersistantConnections;
+using Microsoft.AspNet.SignalR;
 
 namespace EventStreamR.Proxy
 {
@@ -44,7 +45,12 @@ namespace EventStreamR.Proxy
 	{
 		public void Configuration(IAppBuilder app)
 		{
-			app.MapHubs();
+            var config = new HubConfiguration()
+            {
+                EnableCrossDomain = true,
+                EnableDetailedErrors = true
+            };
+			app.MapHubs(config);
             app.MapConnection<EventIncrementPersistantConnection>("/events/increment");
 		}
 	}
