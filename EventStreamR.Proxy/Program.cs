@@ -11,6 +11,9 @@ namespace EventStreamR.Proxy
 {
 	class Program
 	{
+        static Timer t;
+        static TimerCallback timeCB;
+
 		static void Main(string[] args)
 		{
 			string url = "http://localhost:8082";
@@ -20,8 +23,8 @@ namespace EventStreamR.Proxy
 			using (WebApplication.Start<Startup>(url))
 			{
 
-                TimerCallback timeCB = new TimerCallback(ProcessStats);
-                Timer t = new Timer(
+                timeCB = new TimerCallback(ProcessStats);
+                t = new Timer(
                     timeCB, // The TimerCallback delegate object.
                     null, // Any info to pass into the called method (null for no info).
                     1000, // Amount of time to wait before starting (in milliseconds).
