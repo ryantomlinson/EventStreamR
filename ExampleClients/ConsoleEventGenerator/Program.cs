@@ -12,24 +12,27 @@ namespace ExampleClients.ConsoleEventGenerator
             for (int i = 0; i < 1000000000; i++)
             {
                 /*Console.WriteLine("firing event");*/
-				
-                EventStreamer.Instance.Increment("incrementtest");
 
-                if (i % 2 == 0)
+                for (int a = 0; a < 5; a++)
                 {
-                    EventStreamer.Instance.Increment("incrementtest2");
-                }
-                if (i % 3 == 0)
-                {
-                    EventStreamer.Instance.Increment("incrementtest3");
-                }
-                if (i % 4 == 0)
-                {
-                    EventStreamer.Instance.Increment("incrementtest4");
-                }
-                if (i % 5 == 0)
-                {
-                    EventStreamer.Instance.Increment("incrementtest5");
+                    EventStreamer.Instance.Increment("incrementtest");
+                
+                    if (i % 2 == 0)
+                    {
+                        EventStreamer.Instance.Increment("incrementtest2");
+                    }
+                    if (i % 3 == 0)
+                    {
+                        EventStreamer.Instance.Increment("incrementtest3");
+                    }
+                    if (i % 4 == 0)
+                    {
+                        EventStreamer.Instance.Increment("incrementtest4");
+                    }
+                    if (i % 5 == 0)
+                    {
+                        EventStreamer.Instance.Increment("incrementtest5");
+                    }
                 }
 
                 if (i % 5000 == 0)

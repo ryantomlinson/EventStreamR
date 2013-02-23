@@ -47,10 +47,10 @@ namespace EventStreamR.Client.Core
             {
                 lock (connectionLock)
                 {
-                    Console.WriteLine("Creating new persistant connection");
+                    //Console.WriteLine("Creating new persistant connection");
                     incrementPersistantConnection = new Connection(connectionUrl + "events/increment");
                     incrementPersistantConnection.Start().Wait();
-                    Console.WriteLine("Connection created");
+                    //Console.WriteLine("Connection created");
                 }
             }
 
