@@ -36,6 +36,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BookSleeve">
+      <HintPath>..\packages\BookSleeve.1.2.0.8\lib\BookSleeve.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack.Common, Version=3.9.37.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\ServiceStack.Common.3.9.37\lib\net35\ServiceStack.Common.dll</HintPath>
@@ -62,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Persistence\IEventPersistence.cs" />
+    <Compile Include="Persistence\RedisBooksleevePersistence.cs" />
     <Compile Include="Persistence\RedisEventPersistence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

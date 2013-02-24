@@ -7,6 +7,6 @@ namespace EventStreamR.Server.Core.Persistence
 	{
 		void Store(EventMessageDto message);
         void Increment(string key);
-        IDictionary<string, uint> GetIncrementValues(IEnumerable<string> keys);
+        IDictionary<string, long> GetIncrementValues(IEnumerable<string> keys);
 	}
 }

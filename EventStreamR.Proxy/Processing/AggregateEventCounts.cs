@@ -10,7 +10,7 @@ namespace EventStreamR.Proxy.Processing
     {
         public void SendCounts()
         {
-            IEventPersistence redisPersistence = new RedisEventPersistence();
+            IEventPersistence redisPersistence = new RedisBooksleevePersistence();
             HashSet<string> keyNames = IncrementalKeyStore.Instance.GetKeys();
             if (keyNames.Count > 0)
             {

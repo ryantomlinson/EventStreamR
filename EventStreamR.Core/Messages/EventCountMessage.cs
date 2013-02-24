@@ -7,10 +7,10 @@ namespace EventStreamR.Client.Core.Messages
         //note: look to see if we can send a dictionary over signalr
         public IEnumerable<EventCountInformation> Items { get; set; }
 
-        public EventCountMessage(IEnumerable<KeyValuePair<string, uint>> items)
+        public EventCountMessage(IEnumerable<KeyValuePair<string, long>> items)
         {
             List<EventCountInformation> eventInfoList = new List<EventCountInformation>();
-            foreach (KeyValuePair<string, uint> item in items)
+            foreach (KeyValuePair<string, long> item in items)
             {
                 eventInfoList.Add(new EventCountInformation() { Key = item.Key, Count = item.Value});
             }
@@ -21,6 +21,6 @@ namespace EventStreamR.Client.Core.Messages
     public class EventCountInformation
     {
         public string Key { get; set; }
-        public uint Count { get; set; }
+        public long Count { get; set; }
     }
 }

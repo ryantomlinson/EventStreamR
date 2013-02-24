@@ -31,7 +31,7 @@ namespace EventStreamR.Server.Core.Persistence
             }
         }
 
-        public IDictionary<string, uint> GetIncrementValues(IEnumerable<string> keys)
+        public IDictionary<string, long> GetIncrementValues(IEnumerable<string> keys)
         {
             Dictionary<string, string> convertedKeys = new Dictionary<string, string>();
             foreach (string key in keys)
@@ -39,13 +39,13 @@ namespace EventStreamR.Server.Core.Persistence
                 convertedKeys.Add(key, string.Format("urn:eventcounts:{0}", key));
             }
 
-            IDictionary<string, uint> redisReturnValues = null;
+            IDictionary<string, long> redisReturnValues = null;
             using (var redisClient = pooledClientManager.GetReadOnlyClient())
             {
-                redisReturnValues = redisClient.GetAll<uint>(convertedKeys.Values);
+                redisReturnValues = redisClient.GetAll<long>(convertedKeys.Values);
             }
 
-            Dictionary<string, uint> returnValues = new Dictionary<string, uint>();
+            Dictionary<string, long> returnValues = new Dictionary<string, long>();
             if (redisReturnValues != null)
             {
                 foreach(KeyValuePair<string, string> kvp in convertedKeys)
