@@ -9,7 +9,7 @@ namespace EventStreamR.Proxy.Hubs
 {
     public class EventHub : Hub
     {
-        IEventPersistence RedisPersistence = new RedisEventPersistence();
+        IEventPersistence RedisPersistence = new RedisBooksleevePersistence();
 
         public void SendEvent(EventMessage message)
         {

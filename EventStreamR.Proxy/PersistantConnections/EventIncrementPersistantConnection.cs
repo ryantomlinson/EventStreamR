@@ -10,7 +10,7 @@ namespace EventStreamR.Proxy.PersistantConnections
 {
     public class EventIncrementPersistantConnection : PersistentConnection 
     {
-        IEventPersistence RedisPersistence = new RedisEventPersistence();
+        IEventPersistence RedisPersistence = new RedisBooksleevePersistence();
 
         protected override Task OnReceived(IRequest request, string connectionId, string data)
         {
